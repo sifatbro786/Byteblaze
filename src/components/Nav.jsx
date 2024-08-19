@@ -1,10 +1,10 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 
 
 const Nav = () => {
 
-  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
+  const [theme, setTheme] = useState(localStorage.getItem('theme'));
 
   const handleToggle = e => {
     setTheme(e.target.checked ? 'synthwave' : 'light');
@@ -16,23 +16,36 @@ const Nav = () => {
   }, [theme])
 
   return (
-    <div className="navbar bg-base-100 shadow-lg px-4 fixed z-10">
+    <nav className="navbar bg-base-100 shadow-lg px-4 md:px-8 fixed z-10">
       <div className="flex-1">
-        <a className="btn btn-ghost gap-0 text-secondary text-2xl">Byte<span className="text-primary">Blaze</span></a>
+        <Link to={'/'} className="gap-0 font-semibold text-secondary text-2xl">Byte<span className="text-primary">Blaze</span></Link>
       </div>
-      <div className="flex-none">
+      <div className="flex-none gap-3">
 
-        <ul className="menu menu-horizontal px-1">
-          <li>
-            <a className="font-bold">Home</a>
-          </li>
-          <li>
-            <a className="font-bold text-primary">Blogs</a>
-          </li>
-          <li>
-            <a className="font-bold">Bookmarks</a>
-          </li>
-        </ul>
+          <ul className="menu menu-horizontal px-1 hidden md:flex gap-5">
+
+              <NavLink
+               to={'/'}
+               className={({isActive}) => 
+                isActive ? 'text-primary font-bold' : 'font-bold'
+              }
+              >Home</NavLink>
+
+              <NavLink
+               to={'/blogs'}
+               className={({isActive}) => 
+                isActive ? 'text-primary font-bold' : 'font-bold'
+              }
+              >Blogs</NavLink>
+            
+              <NavLink
+               to={'/bookmarks'}
+               className={({isActive}) => 
+                isActive ? 'text-primary font-bold' : 'font-bold'
+              }
+              >Bookmarks</NavLink>
+            
+          </ul>
         {/* //! Theme */}
         <label className="grid cursor-pointer place-items-center">
           <input
@@ -71,7 +84,7 @@ const Nav = () => {
         </label>
 
       </div>
-    </div>
+    </nav>
   );
 };
 
