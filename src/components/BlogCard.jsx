@@ -4,6 +4,7 @@ import placeholderImage from '../assets/404.jpg';
 // eslint-disable-next-line react/prop-types
 const BlogCard = ({blog}) => {
 
+  // eslint-disable-next-line react/prop-types
   const {title, cover_image, description, published_at, id} = blog;
 
   return (
