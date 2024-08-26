@@ -18,7 +18,7 @@ const Content = () => {
             return (
               <a 
                 key={idx}
-                className="px-3 py-1 rounded-sm hover:underline dark:bg-violet-600 dark:text-gray-50"
+                className="px-3 py-1 rounded-sm dark:bg-violet-600 dark:text-gray-50"
               >#{tag}</a>
             )
           })

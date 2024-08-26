@@ -6,11 +6,13 @@ import Blog from '../pages/Blog';
 import Bookmarks from '../pages/Bookmarks';
 import Content from './../components/Content';
 import Author from './../components/Author';
+import ErrorPage from './../components/ErrorPage';
 
 export const router = createBrowserRouter([
     {
       path: '/',
       element: <Root/>,
+      errorElement: <ErrorPage/>,
       children: [
 
         {
@@ -20,7 +22,7 @@ export const router = createBrowserRouter([
         {
           path: '/blogs',
           element: <Blogs/>,
-          loader: () => fetch('https://dev.to/api/articles?per_page=21&top=7')
+          loader: () => fetch('https://dev.to/api/articles?per_page=22&top=5')
         },
 
         //! Nested Routing:
