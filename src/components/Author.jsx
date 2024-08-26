@@ -30,7 +30,7 @@ const Author = () => {
             href={website_url} 
             target="_blank"
             aria-label="Portfolio Website"
-            className="p-2 rounded-md dark:text-gray-800 hover:dark:text-violet-600"
+            className="p-2 rounded-md dark:text-gray-800 hover:dark:text-violet-600 cursor-pointer"
           >
             <TbWorld className="text-[18px]"/>
           </a>
